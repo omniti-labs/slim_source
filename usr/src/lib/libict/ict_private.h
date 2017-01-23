@@ -36,8 +36,8 @@ extern "C" {
 /*
  * General defines
  */
-#define	DEFAULT_HOSTNAME	"openindiana"
-#define	SOLARIS			"openindiana"
+#define	DEFAULT_HOSTNAME	"omnios"
+#define	SOLARIS			"omnios"
 
 /*
  * Root and user default defines

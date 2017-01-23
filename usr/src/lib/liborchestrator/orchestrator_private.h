@@ -129,7 +129,7 @@ extern "C" {
 /*
  * Initial BE name
  */
-#define	INIT_BE_NAME		"openindiana"
+#define	INIT_BE_NAME		"omnios"
 
 /*
  * Default file systems
