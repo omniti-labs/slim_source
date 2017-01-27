@@ -539,11 +539,6 @@ $(PDIR)/%.mog: manifests/%.mf
 		fi; \
 		$(LN) -s $(@F) \
 			$(PDIR)/$(@F:%.mog=%).metadata.$$PKGSTAT.$$REPO; \
-		if [ \( "$$PKGSTAT" = "current" \) -o \
-		     \( "$$PKGSTAT" = "noredist" \) -o \
-		     \( "$$PKGSTAT" = "renamed" \) ]; \
-			then print $(PKGDEP_INCORP) >> $(@); \
-		fi; \
 	else \
 		$(TOUCH) $(@); \
 	fi

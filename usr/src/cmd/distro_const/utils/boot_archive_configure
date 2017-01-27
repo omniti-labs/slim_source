@@ -162,7 +162,7 @@ CHROOT=/usr/sbin/chroot
 DEVFSADM=/usr/sbin/devfsadm
 ED=/usr/bin/ed
 FIND=/usr/bin/find
-GREP=/usr/xpg4/bin/grep
+GREP=/usr/bin/grep
 UUIDGEN=/usr/bin/uuidgen
 TOUCH=/usr/bin/touch
 TR=/usr/bin/tr
@@ -177,7 +177,7 @@ MKREPO=/usr/share/distro_const/mkrepo
 VOLSETID_FILENAME=.volsetid
 
 # hostname name for the image
-HOSTNAME="openindiana"
+HOSTNAME="omnios"
 
 print "Configuring boot archive..."
 

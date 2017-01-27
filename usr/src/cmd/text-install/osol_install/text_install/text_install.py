@@ -1,4 +1,4 @@
-#!/usr/bin/python2.7
+#!/usr/bin/i386/python2.7
 #
 # CDDL HEADER START
 #
@@ -23,7 +23,7 @@
 #
 
 '''
-Text / (n)Curses based UI for installing OpenIndiana
+Text / (n)Curses based UI for installing OmniOS
 '''
 
 import curses

@@ -71,7 +71,7 @@ ICT_USER_GID = "10"
 INSTALL_FINISH_PROG = "/sbin/install-finish"
 
 # Initial BE name
-INIT_BE_NAME = "openindiana"
+INIT_BE_NAME = "omnios"
 
 # definitions for ZFS pool
 INSTALL_SNAPSHOT = "install"
@@ -88,7 +88,7 @@ ZFS_SHARED_FS = ["/export/home", "/export"]
 #
 INSTALL_STATUS = None
 
-TI_RPOOL_PROPERTY_STATE = "org.openindiana.caiman:install"
+TI_RPOOL_PROPERTY_STATE = "org.omnios.caiman:install"
 TI_RPOOL_BUSY = "busy"
 
 
@@ -196,11 +196,11 @@ def cleanup_existing_install_target(install_profile):
         logging.debug("Root pool %s does not exist", rootpool_name)
         return   # rpool doesn't exist, no need to clean up
 
-    # Check value of rpool's org.openindiana.caiman:install property
+    # Check value of rpool's org.omnios.caiman:install property
     # If it is busy, that means the pool is left over from an aborted install.
     # If the property doesn't exist or has another value, we assume
     # that the root pool contains valid Solaris instance.
-    cmd = "/usr/sbin/zfs get -H -o value org.openindiana.caiman:install " + \
+    cmd = "/usr/sbin/zfs get -H -o value org.omnios.caiman:install " + \
           rootpool_name
     logging.debug("Executing: %s", cmd)
     (status, pool_status) = commands.getstatusoutput(cmd)
@@ -253,7 +253,7 @@ def create_root_pool(install_profile):
     # Create boot/grub directory for holding menu.lst file
     exec_cmd(["/usr/bin/mkdir", "-p", "/%s/boot/grub" % (rootpool_name) ],
              "creating grub menu directory")
-    # Mark created pool as 'busy' (org.openindiana.caiman:install=busy)
+    # Mark created pool as 'busy' (org.omnios.caiman:install=busy)
     exec_cmd(["/usr/sbin/zfs", "set", "%s=%s" % (TI_RPOOL_PROPERTY_STATE,
              TI_RPOOL_BUSY), rootpool_name ], "marking pool as busy")
 

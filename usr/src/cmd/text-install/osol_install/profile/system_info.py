@@ -34,7 +34,7 @@ class SystemInfo(object):
     Represents miscellaneous system information
     '''
     
-    DEFAULT_HOSTNAME = "openindiana"
+    DEFAULT_HOSTNAME = "omnios"
     UTC = "UTC"
     
     DEFAULT_LOCALE = "C"

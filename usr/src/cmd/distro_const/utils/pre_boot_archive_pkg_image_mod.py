@@ -1,4 +1,4 @@
-#!/usr/bin/python2.7
+#!/usr/bin/i386/python2.7
 #
 # CDDL HEADER START
 #
@@ -78,26 +78,29 @@ if __name__ == "__main__":
     is_plaintext = get_manifest_boolean(manifest_reader_obj,
                                         ROOT_PASSWD_PLAINTEXT)
 
-    print "root_passwd_text = " + root_passwd_text
-    print "is_plaintext = " + str(is_plaintext)
+    if root_passwd_text:
+        print "root_passwd_text = " + root_passwd_text
+        print "is_plaintext = " + str(is_plaintext)
     
-    if is_plaintext:
-        encrypted_root_passwd = encrypt_password(root_passwd_text,
-                                                 alt_root=pkg_img_path)
-    else:
-        encrypted_root_passwd = root_passwd_text
+        if is_plaintext:
+            encrypted_root_passwd = encrypt_password(root_passwd_text,
+                                                     alt_root=pkg_img_path)
+        else:
+            encrypted_root_passwd = root_passwd_text
     
-    print "Encrypted root password: " + encrypted_root_passwd
+        print "Encrypted root password: " + encrypted_root_passwd
 
-    try:
-        pfile = PasswordFile(pkg_img_path)
-        root_entry = pfile.getuser("root")
-        root_entry["password"] = encrypted_root_passwd
-        pfile.setvalue(root_entry)
-        pfile.writefile()
-    except StandardError:
-        print >> sys.stderr, "Failed to modify image with user" \
-                             + "specified root password"
-        sys.exit(1)
+        try:
+            pfile = PasswordFile(pkg_img_path)
+            root_entry = pfile.getuser("root")
+            root_entry["password"] = encrypted_root_passwd
+            pfile.setvalue(root_entry)
+            pfile.writefile()
+        except StandardError:
+            print >> sys.stderr, "Failed to modify image with user" \
+                                 + "specified root password"
+            sys.exit(1)
+    else:
+        print "No root pasword specified. Defaulting to no password."
 
     sys.exit(0)

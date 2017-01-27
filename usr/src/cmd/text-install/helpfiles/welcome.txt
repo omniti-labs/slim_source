@@ -1,8 +1,8 @@
 WELCOME
 
-This text installer enables you to install OpenIndiana on your system. It installs a minimal server-oriented package set, for example omitting the GNOME desktop.
+This text installer enables you to install OmniOS on your system. It installs a minimal server-oriented package set, for example omitting the GNOME desktop.
 
-Note: This installer will overwrite any currently installed Operating System. If you wish to upgrade an existing OpenIndiana installation, use the pkg(1) command or the Package Manager application instead of this installer.
+Note: This installer will overwrite any currently installed Operating System. If you wish to upgrade an existing OmniOS installation, use the pkg(1) command or the Package Manager application instead of this installer.
 
 PROCEDURE
 

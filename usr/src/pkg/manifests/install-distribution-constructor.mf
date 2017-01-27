@@ -42,8 +42,6 @@ depend fmri=service/storage/media-volume-manager type=require
 depend fmri=system/extended-system-utilities type=require
 # /usr/sbin/zfs
 depend fmri=system/file-system/zfs type=require
-# /usr/xpg4/bin/grep
-depend fmri=system/xopen/xcu4 type=require
 
 dir path=usr group=sys
 dir path=usr/bin 

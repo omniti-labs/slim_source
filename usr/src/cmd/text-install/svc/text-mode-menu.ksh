@@ -35,7 +35,7 @@ trap "" TSTP INT TERM ABRT QUIT
 # Determine which shell program to use by grabbing this user's login-shell
 # from /etc/passwd
 ROOT_SHELL=$(/usr/bin/getent passwd $LOGNAME | \
-    /usr/xpg4/bin/awk -F : '{print $7}')
+    /usr/gnu/bin/awk -F : '{print $7}')
 
 # On the off chance that $LOGNAME has no shell (default grabbed from passwd(4))
 if [[ -z "$ROOT_SHELL" ]]; then
@@ -44,12 +44,8 @@ fi
 
 # Define the menu of commands and prompts
 menu_items=( \
-    (menu_str=`gettext "Install OpenIndiana"`			 \
+    (menu_str=`gettext "Install OmniOS"`			 \
 	cmds=("/usr/bin/text-install")					 \
-	do_subprocess="true"						 \
-	msg_str="")							 \
-    (menu_str=`gettext "Install Additional Drivers"`			 \
-	cmds=("/usr/bin/ddu-text")					 \
 	do_subprocess="true"						 \
 	msg_str="")							 \
     (menu_str=`gettext "Shell"`						 \
@@ -119,7 +115,8 @@ function prompt_for_term_type
 	termtypes.fixedlist=(
 		[0]=(  name="dtterm"		desc="CDE terminal emulator")
 		[1]=(  name="xterm"		desc="xterm"		    )
-		[2]=(  name="vt100"		desc="DEC VT100"	    )
+		[2]=(  name="xterm-256color"	desc="xterm (256 color)"    )
+		[3]=(  name="vt100"		desc="DEC VT100"	    )
 	)
 
 	termtypes.list_len=${#termtypes.fixedlist[@]}
@@ -172,7 +169,7 @@ for ((;;)) ; do
 	# Display the menu.
 	clear
 	printf \
-	    "`gettext 'Welcome to the OpenIndiana %s installation menu'`" \
+	    "`gettext 'Welcome to the OmniOS %s installation menu'`" \
 	    "`uname -v`"
 	printf " \n\n"
 	for i in "${!menu_items[@]}"; do

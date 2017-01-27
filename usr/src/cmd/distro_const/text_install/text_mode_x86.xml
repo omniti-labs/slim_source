@@ -24,7 +24,7 @@
     Text Mode Installer iso and usb image
 -->
 
-<distribution name="OpenIndiana_Text_X86">
+<distribution name="OmniOS_Text_X86">
 	<distro_constr_params>
 		<!--
 		     Where to build. This can be a zfs dataset or a mountpoint.
@@ -192,8 +192,8 @@
 		-->
 		<pkg_repo_default_authority>
 			<main
-				url="http://pkg.openindiana.org/dev"
-				authname="openindiana.org"/>
+				url="https://pkg.omniti.com/omnios/bloody/"
+				authname="omnios"/>
 			<!--
 			     If you want to use one or more  mirrors that are
 			     setup for the authority, specify the urls here.
@@ -229,8 +229,8 @@
 		-->
 		<post_install_repo_default_authority>
 			<main
-				url="http://pkg.openindiana.org/dev"
-				authname="openindiana.org"/>
+				url="https://pkg.omniti.com/omnios/bloody/"
+				authname="omnios"/>
 			<!--
 			     Uncomment before using.
 			<mirror url="" />
@@ -245,8 +245,8 @@
 		-->
 		<post_install_repo_addl_authority>
 			<main
-				url="http://pkg.openindiana.org/legacy"
-				authname="opensolaris.org"/>
+				url="https://pkg.omniti.com/omnios/bloody/"
+				authname="omnios"/>
 			<!--
 			     Uncomment before using.
 			<mirror url="" />
@@ -269,6 +269,9 @@
 			<pkg name="pkg:/server_install"/>
 			<pkg name="pkg:/system/install/text-install"/>
 			<pkg name="pkg:/system/install/media/internal"/>
+			<pkg name="pkg:/system/pciutils"/>
+			<pkg name="pkg:/network/openssh"/>
+			<pkg name="pkg:/network/openssh-server"/>
 		</packages>
 <!--
      Items below this line are rarely configured
@@ -420,7 +423,6 @@
 			<base_include type="dir">devices</base_include>
 			<base_include type="dir">usr/lib/devfsadm/linkmod</base_include>
 			<base_include type="dir">root</base_include>
-			<base_include type="dir">jack</base_include>
 			<base_include type="dir">var/svc/manifest</base_include>
 			<base_include type="dir">var/svc/profile</base_include>
 			<base_include type="dir">var/sadm</base_include>
